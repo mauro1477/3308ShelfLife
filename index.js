@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const dbb = require('./resources/js/queries');
 const hostname = '127.0.0.1';
-const port = 3000
+// const port = 3000
 var fs = require('fs');
 app.use(bodyParser.json());              // Add support for JSON encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Add support for URL encoded bodies
@@ -31,7 +31,8 @@ app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/')); // This line is necessary for us to use relative paths and access our resources directory
 var db=pg(dbConfig);
 
-
+app.listen(process.env.PORT || 3000);
+console.log('3000 is the magic port');
 
 ///////////////////////////////////////////////////////////////////////////////
 // routes
@@ -154,6 +155,3 @@ app.post('/home', function (req, res) {
 app.get('/setting', function(request, response) {
 	response.sendFile('/Users/maurovargas/Documents/CSCI3308/node-api-postgres/views/settings.html')
 });
-
-app.listen(3000);
-console.log('3000 is the magic port');
