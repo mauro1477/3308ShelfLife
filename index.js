@@ -42,7 +42,7 @@ app.post('/settings', dbb.updatePassword)
 
 
 app.get('/login', function(req, res) {
-    res.sendFile('./views/login.html','./resources/css/signin.css')
+    res.sendFile(__dirname + '/views/login.html',__dirname + '/resources/css/signin.css')
 		console.log('app.get');
 		console.log(req.action);
 });
@@ -138,12 +138,12 @@ app.post('/reg', function(request, response) {
 
 app.get('/register', (request, response) => {
   console.log("in register");
-  response.sendFile('./views/registerv2.html')
+  response.sendFile(__dirname + '/views/registerv2.html')
 })
 
 
 app.get('/home', function(request, response) {
-	response.sendFile('./views/home.html')
+	response.sendFile(__dirname + '/views/home.html')
 });
 
 app.post('/home', function (req, res) {
@@ -153,5 +153,5 @@ app.post('/home', function (req, res) {
 
 
 app.get('/setting', function(request, response) {
-	response.sendFile('./views/settings.html')
+	response.sendFile(__dirname + '/views/settings.html')
 });
