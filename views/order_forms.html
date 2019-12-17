@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Order Forms</title>
+
+    <!--  Bootstrap + CSS    -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="../resources/css/my_style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="home.html">
+        <img class="rounded-circle" src="../resources/img/logo.jpg" alt="" width="90" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="account.html">Account<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sales.html">Sales</a>
+          </li>
+          <li class ="nav-item">
+            <a class = "nav-link" href = "http://localhost:3000/inventory" target = "_self">Inventory</a>
+          </li>
+          <li>
+            <a class="nav-link" href="order_forms.pug">Order Forms</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <a href="login.html">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+      <table border="1" cellpadding="7" cellspacing="7">
+        <tr>
+          <th> ingredient_id </th>
+          <th> ingredient_group_id </th>
+          <th> ingredient_name </th>
+          <th> ingredient_quantity </th>
+          <th> ingredient_cost </th>
+          <th> ingredient_unit</th>
+        </tr>
+        <script>
+        for(var i=0; i <= data.length; i++)
+        {
+         <tr>
+           <td><data[i].ingredient_id></td>
+           <td><data[i].ingredient_group_id></td>
+           <td><data[i].ingredient_name></td>
+           <td><data[i].ingredient_quantity></td>
+           <td><data[i].ingredient_cost></td>
+           <td><data[i].ingredient_unit></td>
+         </tr>
+         }
+         </script>
+      </table>
+      <form action="/order" method="post">
+        User Id:<br>
+        <input type="number" name="user_id_html" id = user_id_html>
+        <br>
+        Ingredient Id:<br>
+       <input type="number" name="ingredient_id_html" id = ingredient_id_html>
+       <br>
+        Ingredient Quantity:<br>
+        <input type="number" name="ingredient_quantity_html" id = ingredient_quantity_html>
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+        <!-- <div class="form-group row"><label class="col-sm-2 col-form-label" for="id_html">Ingredient Id:</label>
+            <div class="col-sm-3"><input class="form-control" id="id_html" type="number" name="id_html" placeholder="Enter Ingredient Id" /></div><label class="col-sm-2 col-form-label" for="ingredient_quantity_html">Ingredient Quantity:</label>
+            <div class="col-sm-3"><input class="form-control" id="ingredient_quantity_html" type="number" name="ingredient_quantity_html" placeholder="#10" /></div>
+            <div class="col-sm-3"><label>User_ID:</label><input class="form-control" id="User_Id_html" type="number" name="User_Id_html" placeholder="#99" /></div>
+        </div><br/><br/><br/><br/><input class="btn btn-primary btn-block" type="submit" value="SUBMIT ORDER FORM" />
+      </form> -->
+  </body>
+</html>

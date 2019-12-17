@@ -1,0 +1,77 @@
+doctype html
+html(lang='en', dir='ltr')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    title Inventory
+    // Bootstrap + CSS
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', integrity='sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS', crossorigin='anonymous')
+    link(href='../resources/css/my_style.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      a.navbar-brand(href='/views/home.html')
+        img.rounded-circle(src='../resources/img/logo.jpg', alt='', width='90', height='40')
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarText', aria-controls='navbarText', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/views/home.html') Home
+          li.nav-item
+            a.nav-link(href='/views/account.html') Account
+          li.nav-item
+            a.nav-link(href='/views/sales.html') Sales
+          li.nav-item
+            a.nav-link(href='http://localhost:3000/inventory') Inventory
+            li.nav-item
+              a.nav-link(href='http://localhost:3000/order_forms') Order Forms
+        ul.navbar-nav.float-right
+          li.nav-item
+            a.nav-link(href='/login') Login
+    form(action='/send' method='post')
+      | User Id:
+      br
+      input#dish_id_pug(type='number' name='dish_id_pug')
+      br
+      |         Dish ID:
+      br
+      input#dish_name_pug(type='number' name='dish_name_pug')
+      br
+      |         Dish Name:
+      br
+      input#dish_quantity_pug(type='number' name='dish_quantity_pug')
+      br
+      |         Dish Dish quantity:
+      br
+      br
+      input(type='submit' value='Submit')
+    style.
+      #IngredientTable {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      }
+      #IngredientTable td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      }
+      #IngredientTable tr:nth-child(even){background-color: #f2f2f2;}
+      #IngredientTable tr:hover {background-color: #ddd;}
+      #IngredientTable th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4d94ff;
+      color: white;
+      }
+    table#IngredientTable
+      tr
+        th Ingredient Dish ID
+        th Ingredient Dish Name
+        th Ingredient Dish_cost
+      for item in inventory_item
+        tr
+          td #{item.dish_id}
+          td #{item.dish_name}
+          td #{item.dish_cost}

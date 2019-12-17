@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link href="../resources/css/signin.css" rel="stylesheet">
+</head>
+  <body class="center text-center">
+    <form class="form-signin" action="/auth" method="POST">
+      <a href="home.html">
+        <img class="rounded-circle" src="../resources/img/logo.jpg" alt="LOGO" width="248" height="90">
+      </a>
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="User_Name" class="sr-only">User Name</label>
+      <input type="text" id="User_Name" class="form-control" placeholder="JohnDoe99" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me |
+        </label>
+        <a href="">Forgot Password?</a>
+      </div>
+      <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+      </form>
+      <form class="" action="/reg" method="POST">
+        <button class="btn btn-lg btn-primary" type="submit">Register</button>
+      </form>
+      <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+  </body>
+</html>
+
+
+</html>
+
+
+<!-- <form action="/auth" method="post">
+  <div class="imgcontainer">
+    <img src="../resources/img/logo.jpg" alt="rounded-circle" class="rounded-circle">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form> -->
