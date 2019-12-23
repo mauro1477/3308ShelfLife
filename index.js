@@ -19,22 +19,31 @@ app.use(
 )
 
 // set the view engine to ejs
+const dbConfig={
+	host: 'localhost',
+	port: 5432,  //probably 5432 for you
+	database: 'api',   //enter in your username password for pg
+	user: 'me',
+	password:'Dukey7725$$@@'
+};
+
+// set the view engine to ejs
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/')); // This line is necessary for us to use relative paths and access our resources directory
-
+var db=pg(dbConfig);
 // if(process.env.ENVIRONMENT == 'PROD')
 // {
 //   var db=ph(process.env.DATABASE_URL)
 // }
 // else
 // {
-  const dbConfig={
-  	host: process.env.DB_HOST || 'localhost',
-  	port: process.env.DB_PORT || 5432,  //probably 5432 for you
-  	database: process.env.DB_NAME || 'api',   //enter in your username password for pg
-  	user: process.env.DB_USER || 'me',
-  	password:process.env.DB_PASSWORD || 'Dukey7725$$@@'
-  };
+//   const dbConfig={
+//   	host: process.env.DB_HOST || 'localhost',
+//   	port: process.env.DB_PORT || 5432,  //probably 5432 for you
+//   	database: process.env.DB_NAME || 'api',   //enter in your username password for pg
+//   	user: process.env.DB_USER || 'me',
+//   	password:process.env.DB_PASSWORD || 'Dukey7725$$@@'
+//   };
 //   var db=pg(dbConfig);
 // }
 
