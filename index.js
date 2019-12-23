@@ -3,8 +3,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const dbb = require('./resources/js/queries');
-//const hostname = '127.0.0.1';
-// const port = 3000
 var fs = require('fs');
 app.use(bodyParser.json());              // Add support for JSON encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Add support for URL encoded bodies
@@ -18,19 +16,10 @@ app.use(
   })
 )
 
-// set the view engine to ejs
-// const dbConfig={
-// 	host: 'localhost',
-// 	port: 5432,  //probably 5432 for you
-// 	database: 'api',   //enter in your username password for pg
-// 	user: 'me',
-// 	password:'Dukey7725$$@@'
-// };
-//var db=pg(dbConfig);
 
 // set the view engine to ejs
 app.set('view engine', 'pug');
-app.use(express.static(__dirname + '/')); // This line is necessary for us to use relative paths and access our resources directory
+app.use(express.static(__dirname + '/views/login.html')); // This line is necessary for us to use relative paths and access our resources directory
 if(process.env.ENVIRONMENT == 'PROD')
 {
   var db=ph(process.env.DATABASE_URL)
