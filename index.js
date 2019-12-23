@@ -20,7 +20,7 @@ app.use(
 
 // set the view engine to ejs
 app.set('view engine', 'pug');
-app.use(express.static(__dirname + '/views/login.html')); // This line is necessary for us to use relative paths and access our resources directory
+//app.use(express.static(__dirname + '/views/login.html')); // This line is necessary for us to use relative paths and access our resources directory
 
 if(process.env.ENVIRONMENT == 'PROD')
 {
