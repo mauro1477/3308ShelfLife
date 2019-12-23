@@ -26,11 +26,11 @@ app.use(
 // 	user: 'me',
 // 	password:'Dukey7725$$@@'
 // };
+//var db=pg(dbConfig);
 
 // set the view engine to ejs
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/')); // This line is necessary for us to use relative paths and access our resources directory
-var db=pg(dbConfig);
 if(process.env.ENVIRONMENT == 'PROD')
 {
   var db=ph(process.env.DATABASE_URL)
