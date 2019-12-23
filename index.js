@@ -1,7 +1,7 @@
 const http = require('http');
 const express = require('express')
 const bodyParser = require('body-parser')
-const app = express()
+//const app = express()
 const dbb = require('./resources/js/queries');
 var fs = require('fs');
 app.use(bodyParser.json());              // Add support for JSON encoded bodies
@@ -19,7 +19,10 @@ app.use(
 
 // set the view engine to ejs
 app.set('view engine', 'pug');
-app.use(express.static(__dirname + '/login')); // This line is necessary for us to use relative paths and access our resources directory
+//app.use(express.static(__dirname + '/login')); // This line is necessary for us to use relative paths and access our resources directory
+var connect = require("connect");
+
+var app = connect.createServer().use(connect.static(__dirname + '/views/login.html'));
 if(process.env.ENVIRONMENT == 'PROD')
 {
   var db=ph(process.env.DATABASE_URL)
