@@ -112,7 +112,7 @@ app.get('/', function(req, res) {
 		console.log(req.action);
 });
 
-app.post('/users', function(request, response) => {
+app.post('/users', function(request, response){
   const Restaurant_Id = 1;
   const {User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2} = request.body//Make sure these name match to the html page
   pool.query('INSERT INTO users(Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ) VALUES($1, $2, $3, $4, $5, $6, $7)', [Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ], (error, results) => {
