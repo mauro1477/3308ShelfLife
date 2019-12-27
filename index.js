@@ -121,7 +121,7 @@ app.post('/users', function(request, response) {
     }
     response.redirect('/home');
   });
-}
+});
 
 app.post('/auth', function(request, response) {
   console.log('/auth');
