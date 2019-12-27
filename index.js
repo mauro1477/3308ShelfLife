@@ -2,9 +2,8 @@ const http = require('http');
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const dbb = require('./resources/js/queries');
+const dbb = require('/resources/js/queries');
 var fs = require('fs');
-var path    = require("path");
 
 app.use(bodyParser.json());              // Add support for JSON encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Add support for URL encoded bodies
@@ -24,12 +23,7 @@ app.set('view engine', 'pug');
 // This line is necessary for us to use relative paths and access our resources directory
 // We need this shit to get resources aka imgs and node.js files
 app.use(express.static(__dirname + '/'));
-//
-//
-// app.get('/',function(req,res)
-// {
-//   res.sendFile(path.join(__dirname+'/index.html'));
-// });
+
 
 if(process.env.ENVIRONMENT == 'PROD')
 {
@@ -55,7 +49,7 @@ console.log('3000 is the magic port');
 app.post('/users', dbb.createUser)
 app.post('/order', dbb.updateInventory)
 app.post('/settings', dbb.updatePassword)
-
+///////////////////////////////////////////////////////////////////////////////
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/views/login.html', __dirname + '/resources/css/signin.css')
