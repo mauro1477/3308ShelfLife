@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 var fs = require('fs');
-var dt = require('./my_modules.js');
+var dt = require('/Users/maurovargas/Documents/CSCI3308/node-api-postgres/resources/js/my_modules.js');
 app.use(bodyParser.json());              // Add support for JSON encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Add support for URL encoded bodies
 var pug = require('pug');
