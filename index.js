@@ -2,7 +2,7 @@ const http = require('http');
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const dbb = require('/resources/js/queries');
+const dbb = require('./resources/js/queries');
 var fs = require('fs');
 
 app.use(bodyParser.json());              // Add support for JSON encoded bodies
