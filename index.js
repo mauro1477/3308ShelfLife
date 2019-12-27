@@ -5,8 +5,10 @@ const app = express()
 var fs = require('fs');
 var pug = require('pug');
 var pg=require('pg-promise')();
+
 const { Pool } = require('pg')
 const pool = new Pool()
+
 app.use(bodyParser.json());// Add support for JSON encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Add support for URL encoded bodies
 app.use(bodyParser.json())
@@ -117,12 +119,14 @@ app.get('/', function(req, res) {
 app.post('/users', function(request, response) {
   const Restaurant_Id = 1;
   const {User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2} = request.body//Make sure these name match to the html page
-  pool.query('INSERT INTO users(Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ) VALUES($1, $2, $3, $4, $5, $6, $7)', [Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ], (error, results) => {
-    if (error) {
+  pool.query('INSERT INTO users(Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ) VALUES($1, $2, $3, $4, $5, $6, $7)', [Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ], (error, results) =>
+  {
+    if (error)
+    {
       throw error
     }
     response.redirect('/home');
-  }
+  });
 });
 
 app.post('/auth', function(request, response) {
