@@ -19,7 +19,9 @@ app.use(
 
 // set the view engine to ejs
 app.set('view engine', 'pug');
-app.use(express.static(__dirname + '/')); // This line is necessary for us to use relative paths and access our resources directory
+// This line is necessary for us to use relative paths and access our resources directory
+// We need this shit to get resources aka imgs and node.js files
+app.use(express.static(__dirname + '/'));
 
 if(process.env.ENVIRONMENT == 'PROD')
 {
@@ -36,6 +38,21 @@ else
   };
   var db=pg(dbConfig);
 }
+
+let handleRequest = (request, response) => {
+    response.writeHead(200, {
+        'Content-Type': 'text/html'
+    });
+    fs.readFile(__dirname + '/views/login.html', __dirname + '/resources/css/signin.css', null, function (error, data) {
+        if (error) {
+            response.writeHead(404);
+            respone.write('Whoops! File not found!');
+        } else {
+            response.write(data);
+        }
+        response.end();
+    });
+};
 
 app.listen(process.env.PORT || 3000);
 console.log('3000 is the magic port');
