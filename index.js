@@ -43,21 +43,12 @@ console.log('3000 is the magic port');
 
 ///////////////////////////////////////////////////////////////////////////////
 // routes
-// app.post('/users', db.createUser)
+
 // app.post('/order', db.updateInventory)
 // app.post('/settings', db.updatePassword)
 //
 //
-// const createUser = (request, response) => {
-//   const Restaurant_Id = 1;
-//   const {User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2} = request.body//Make sure these name match to the html page
-//   pool.query('INSERT INTO users(Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ) VALUES($1, $2, $3, $4, $5, $6, $7)', [Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ], (error, results) => {
-//     if (error) {
-//       throw error
-//     }
-//     response.redirect('/home');
-//   })
-// }
+//
 // const updatePassword = (request, response) => {
 //   const username = request.body.User_Name;
 //   const newPassword = request.body.User_Password_New;
@@ -120,6 +111,17 @@ app.get('/', function(req, res) {
 		console.log('app.get');
 		console.log(req.action);
 });
+
+app.post('/users', function(request, response) => {
+  const Restaurant_Id = 1;
+  const {User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2} = request.body//Make sure these name match to the html page
+  pool.query('INSERT INTO users(Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ) VALUES($1, $2, $3, $4, $5, $6, $7)', [Restaurant_Id, User_Name, User_Password, Restaurant_Name, Phone, Address_line_1, Address_line_2 ], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.redirect('/home');
+  })
+}
 
 app.post('/auth', function(request, response) {
   console.log('/auth');
