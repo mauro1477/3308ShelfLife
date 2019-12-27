@@ -3,23 +3,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 var fs = require('fs');
-//var dt = require('./js/my_modules.js');
-app.use(bodyParser.json());              // Add support for JSON encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // Add support for URL encoded bodies
 var pug = require('pug');
 var pg=require('pg-promise')();
-
-////////////////////////////////////////////////////////////////////////////////
-var timedata = [];
-var chartData = [];
-var i=0;
-var get;
-var sum;
-var salesdata;
-var result;
-var totalsalesdata;
-////////////////////////////////////////////////////////////////////////////////
-
+app.use(bodyParser.json());// Add support for JSON encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // Add support for URL encoded bodies
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -241,10 +228,3 @@ app.post('/home', function (req, res) {
 app.get('/setting', function(request, response) {
 	response.sendFile(__dirname + '/views/settings.html')
 });
-
-
-// module.exports = {
-//   createUser,
-//   updateInventory,
-//   updatePassword,
-// }
