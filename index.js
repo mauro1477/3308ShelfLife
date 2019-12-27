@@ -5,6 +5,8 @@ const app = express()
 var fs = require('fs');
 var pug = require('pug');
 var pg=require('pg-promise')();
+const { Pool } = require('pg')
+const pool = new Pool()
 app.use(bodyParser.json());// Add support for JSON encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Add support for URL encoded bodies
 app.use(bodyParser.json())
