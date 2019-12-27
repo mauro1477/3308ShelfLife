@@ -23,7 +23,7 @@ app.use(
 app.set('view engine', 'pug');
 // This line is necessary for us to use relative paths and access our resources directory
 // We need this shit to get resources aka imgs and node.js files
-// app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/'));
 //
 //
 // app.get('/',function(req,res)
